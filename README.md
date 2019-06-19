@@ -11,4 +11,4 @@ Seneca
 Initial DB Model:
 <br/>
 <br/>
-![db_model text](https://i.ibb.co/kXWBWqg/Time-Blocking.png)
+![db_model text](https://i.ibb.co/D7fykr8/Time-Blocking.png)
