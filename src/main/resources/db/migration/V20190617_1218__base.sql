@@ -3,11 +3,12 @@ CREATE TABLE IF NOT EXISTS T_USER (
   id                  BIGSERIAL NOT NULL PRIMARY KEY,
   username            VARCHAR(64),
   email               VARCHAR(64),
-  password            VARCHAR(256),
+  password            VARCHAR(64),
   created_ts          TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
   updated_ts          TIMESTAMP WITH TIME ZONE,
   created_by_user     VARCHAR(32) NOT NULL DEFAULT 'System',
-  updated_by_user     VARCHAR(32)
+  updated_by_user     VARCHAR(32),
+  CONSTRAINT unique_username_email UNIQUE(username, email)
 );
 
 -- create EVENT_TYPE table

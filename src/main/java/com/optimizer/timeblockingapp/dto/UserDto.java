@@ -18,6 +18,9 @@ public class UserDto {
     @ApiModelProperty(value = "The User's password", example = "pass123")
     private String password;
 
+    @ApiModelProperty(value = "The User's password for confirmation", example = "pass123")
+    private String rePassword;
+
     public Long getId() {
         return id;
     }
@@ -48,5 +51,13 @@ public class UserDto {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRePassword() {
+        return rePassword;
+    }
+
+    public void setRePassword(String rePassword) {
+        this.rePassword = rePassword;
     }
 }
