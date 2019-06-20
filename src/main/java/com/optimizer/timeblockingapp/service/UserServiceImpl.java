@@ -53,13 +53,8 @@ public class UserServiceImpl implements UserService {
             throw new InvalidInputException("The provided email already exists!");
         }
 
-
         nullCheck(userDto.getPassword(), "password");
         validateShortString(userDto.getPassword(), "password");
-
-//        if (!userDto.getPassword().equals(userDto.getRePassword())) {
-//            throw new InvalidInputException("Both passwords do not match!");
-//        }
 
         nullCheck(userDto.getRePassword(), "confirmation password");
         validateLongString(userDto.getRePassword(), "confirmation password");
