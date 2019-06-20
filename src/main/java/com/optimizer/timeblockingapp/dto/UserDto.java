@@ -1,8 +1,11 @@
 package com.optimizer.timeblockingapp.dto;
 
+import com.optimizer.timeblockingapp.utils.PasswordMatches;
+import com.optimizer.timeblockingapp.utils.ValidEmail;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+@PasswordMatches
 @ApiModel(value = "User DTO", description = "Defines a User by its properties")
 public class UserDto {
 
@@ -12,6 +15,7 @@ public class UserDto {
     @ApiModelProperty(value = "The User's username", example = "John")
     private String username;
 
+    @ValidEmail
     @ApiModelProperty(value = "The User's email", example = "john@doe.com")
     private String email;
 

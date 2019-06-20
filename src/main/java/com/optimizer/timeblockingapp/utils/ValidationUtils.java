@@ -3,8 +3,6 @@ package com.optimizer.timeblockingapp.utils;
 import com.optimizer.timeblockingapp.exception.InvalidInputException;
 import org.springframework.util.StringUtils;
 
-import java.time.LocalDateTime;
-
 public class ValidationUtils {
 
     private static final int TINY_STRING_MAX_LENGTH = 32;

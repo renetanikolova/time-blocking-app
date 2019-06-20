@@ -7,10 +7,6 @@ import java.time.LocalDateTime;
 @Table(name = "T_EVENT")
 public class Event extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     @Column(name = "name")
     private String name;
 
@@ -29,14 +25,6 @@ public class Event extends BaseEntity {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "event_type_id")
     private EventType eventType;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
