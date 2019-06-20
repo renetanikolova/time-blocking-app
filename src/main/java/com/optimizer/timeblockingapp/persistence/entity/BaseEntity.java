@@ -1,12 +1,15 @@
 package com.optimizer.timeblockingapp.persistence.entity;
 
-import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.time.Clock;
 import java.time.LocalDateTime;
 
 @MappedSuperclass
 public class BaseEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name = "created_ts")
     private LocalDateTime createdTs = LocalDateTime.now(Clock.systemUTC());
@@ -15,10 +18,18 @@ public class BaseEntity {
     private LocalDateTime updatedTs;
 
     @Column(name = "created_by_user")
-    private String createdByUser;
+    private String createdByUser = "System";
 
     @Column(name = "updated_by_user")
     private String updatedByUser;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public LocalDateTime getCreatedTs() {
         return createdTs;

@@ -5,7 +5,7 @@ import com.optimizer.timeblockingapp.exception.InvalidInputException;
 import com.optimizer.timeblockingapp.persistence.entity.User;
 import com.optimizer.timeblockingapp.persistence.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
+//import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -23,8 +23,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+//    @Autowired
+//    private PasswordEncoder passwordEncoder;
 
     @Override
     public List<UserDto> getUser(Optional<Long> id) {
@@ -57,9 +57,9 @@ public class UserServiceImpl implements UserService {
         nullCheck(userDto.getPassword(), "password");
         validateShortString(userDto.getPassword(), "password");
 
-        if (!userDto.getPassword().equals(userDto.getRePassword())) {
-            throw new InvalidInputException("Both passwords do not match!");
-        }
+//        if (!userDto.getPassword().equals(userDto.getRePassword())) {
+//            throw new InvalidInputException("Both passwords do not match!");
+//        }
 
         nullCheck(userDto.getRePassword(), "confirmation password");
         validateLongString(userDto.getRePassword(), "confirmation password");
@@ -67,7 +67,8 @@ public class UserServiceImpl implements UserService {
         User user = new User();
         user.setUsername(userDto.getUsername());
         user.setEmail(userDto.getEmail());
-        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
+        user.setPassword(userDto.getPassword());
+//        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
         // set ROLE
 
         user = userRepository.save(user);

@@ -8,6 +8,7 @@ import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,7 +39,7 @@ public class UserController {
     )
     @PostMapping
     @ResponseBody
-    public UserDto createUser(@ApiParam(value = "The User model that need to be created") @RequestBody UserDto userDto) {
+    public UserDto createUser(@ApiParam(value = "The User model that need to be created") @RequestBody @Valid UserDto userDto) {
         return userService.createUser(userDto);
     }
 
